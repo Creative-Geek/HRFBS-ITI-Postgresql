@@ -1,0 +1,145 @@
+       hotel       | location | total_bookings | total_revenue | avg_booking_value 
+-------------------+----------+----------------+---------------+-------------------
+ Burj Al Arab      | Dubai    |              3 |       9000.00 |           3000.00
+ Le Meurice        | Paris    |              2 |       6000.00 |           3000.00
+ Nile Ritz-Carlton | Cairo    |              4 |       3890.00 |            972.50
+ The Plaza         | New York |              1 |       3000.00 |           3000.00
+ The Savoy         | London   |              1 |       1500.00 |           1500.00
+(5 rows)
+
+ room_id |       hotel       |  type  | price_per_night 
+---------+-------------------+--------+-----------------
+       1 | Nile Ritz-Carlton | single |          120.00
+       2 | Nile Ritz-Carlton | double |          200.00
+(2 rows)
+
+     name      | hotel_spend | flight_spend | total_spent | spending_rank 
+---------------+-------------+--------------+-------------+---------------
+ Dina Samir    |     7500.00 |       550.00 |     8050.00 |             1
+ Layla Mahmoud |     6250.00 |       380.00 |     6630.00 |             2
+ Karim Farouk  |     2500.00 |       900.00 |     3400.00 |             3
+ Omar Khalil   |     2480.00 |       670.00 |     3150.00 |             4
+ Nour Ibrahim  |     2800.00 |       250.00 |     3050.00 |             5
+ Youssef Ali   |     1860.00 |       710.00 |     2570.00 |             6
+(6 rows)
+
+     airline     |       route        | departure_date | total_seats | booked_seats | available_seats | occupancy_pct 
+-----------------+--------------------+----------------+-------------+--------------+-----------------+---------------
+ EgyptAir        | Cairo -> Dubai     | 2025-06-01     |           8 |            2 |               6 |          25.0
+ Emirates        | Dubai -> Paris     | 2025-06-10     |           8 |            2 |               6 |          25.0
+ Emirates        | Dubai -> Cairo     | 2025-07-01     |           8 |            1 |               7 |          12.5
+ EgyptAir        | Cairo -> London    | 2025-06-05     |           8 |            1 |               7 |          12.5
+ Air France      | Paris -> Cairo     | 2025-06-20     |           8 |            1 |               7 |          12.5
+ Air France      | New York -> London | 2025-07-10     |           8 |            1 |               7 |          12.5
+ British Airways | London -> New York | 2025-06-15     |           8 |            1 |               7 |          12.5
+ British Airways | London -> Cairo    | 2025-07-05     |           8 |            0 |               8 |           0.0
+(8 rows)
+
+       name        | location | total_reviews | avg_rating | rating_rank 
+-------------------+----------+---------------+------------+-------------
+ Burj Al Arab      | Dubai    |             1 |        5.0 |           1
+ Nile Ritz-Carlton | Cairo    |             4 |        4.5 |           2
+ Le Meurice        | Paris    |             2 |        4.5 |           3
+ The Savoy         | London   |             1 |        4.0 |           4
+(4 rows)
+
+  month  | booking_type | revenue | total_monthly_revenue 
+---------+--------------+---------+-----------------------
+ 2025-01 | hotel        | 2480.00 |               2480.00
+ 2025-02 | hotel        |  800.00 |                800.00
+ 2025-03 | hotel        | 6360.00 |               6360.00
+ 2025-04 | hotel        | 4250.00 |               4250.00
+ 2025-05 | flight       |  500.00 |               3000.00
+ 2025-05 | hotel        | 2500.00 |               3000.00
+ 2025-06 | flight       | 2440.00 |               6440.00
+ 2025-06 | hotel        | 4000.00 |               6440.00
+ 2025-07 | flight       |  520.00 |               3520.00
+ 2025-07 | hotel        | 3000.00 |               3520.00
+(10 rows)
+
+       route        | total_bookings | total_revenue | avg_ticket_price 
+--------------------+----------------+---------------+------------------
+ Dubai -> Paris     |              2 |        760.00 |           380.00
+ Cairo -> Dubai     |              2 |        500.00 |           250.00
+ London -> New York |              1 |        550.00 |           550.00
+ New York -> London |              1 |        520.00 |           520.00
+ Cairo -> London    |              1 |        450.00 |           450.00
+ Paris -> Cairo     |              1 |        420.00 |           420.00
+ Dubai -> Cairo     |              1 |        260.00 |           260.00
+ London -> Cairo    |              0 |               |           440.00
+(8 rows)
+
+     name      |          email          
+---------------+-------------------------
+ Omar Khalil   | omar.khalil@email.com
+ Youssef Ali   | youssef.ali@email.com
+ Nour Ibrahim  | nour.ibrahim@email.com
+ Layla Mahmoud | layla.mahmoud@email.com
+ Karim Farouk  | karim.farouk@email.com
+ Dina Samir    | dina.samir@email.com
+(6 rows)
+
+ booking_type |  status   | count | total_value 
+--------------+-----------+-------+-------------
+ flight       | cancelled |     1 |      260.00
+ flight       | confirmed |     8 |     2940.00
+ flight       | pending   |     1 |      520.00
+ hotel        | cancelled |     1 |     5000.00
+ hotel        | confirmed |     9 |    17890.00
+ hotel        | pending   |     2 |     5500.00
+(6 rows)
+
+   method    | transactions | total_revenue | revenue_pct 
+-------------+--------------+---------------+-------------
+ credit_card |           11 |      15680.00 |        58.4
+ online      |            7 |       8750.00 |        32.6
+ cash        |            2 |       2420.00 |         9.0
+(3 rows)
+
+ payment_date | daily_revenue | running_total 
+--------------+---------------+---------------
+ 2025-01-09   |        480.00 |        480.00
+ 2025-01-31   |       2000.00 |       2480.00
+ 2025-02-13   |        800.00 |       3280.00
+ 2025-03-04   |        360.00 |       3640.00
+ 2025-03-14   |       4500.00 |       8140.00
+ 2025-03-31   |       1500.00 |       9640.00
+ 2025-04-19   |       2250.00 |      11890.00
+ 2025-04-30   |       2000.00 |      13890.00
+ 2025-05-09   |       2500.00 |      16390.00
+ 2025-05-31   |        500.00 |      16890.00
+ 2025-06-04   |        450.00 |      17340.00
+ 2025-06-09   |       4760.00 |      22100.00
+ 2025-06-14   |        550.00 |      22650.00
+ 2025-06-19   |        420.00 |      23070.00
+ 2025-06-30   |        260.00 |      23330.00
+ 2025-07-04   |       3000.00 |      26330.00
+ 2025-07-09   |        520.00 |      26850.00
+(17 rows)
+
+   customer    | booking_type |    destination     | travel_date | amount  |  status   
+---------------+--------------+--------------------+-------------+---------+-----------
+ Dina Samir    | Hotel        | Burj Al Arab       | 2025-03-15  | 4500.00 | confirmed
+ Dina Samir    | Flight       | London -> New York | 2025-06-15  |  550.00 | confirmed
+ Dina Samir    | Hotel        | The Plaza          | 2025-07-05  | 3000.00 | pending
+ Karim Farouk  | Hotel        | The Savoy          | 2025-01-20  | 5000.00 | cancelled
+ Karim Farouk  | Hotel        | Burj Al Arab       | 2025-05-10  | 2500.00 | pending
+ Karim Farouk  | Flight       | Dubai -> Paris     | 2025-06-10  |  380.00 | confirmed
+ Karim Farouk  | Flight       | New York -> London | 2025-07-10  |  520.00 | pending
+ Layla Mahmoud | Hotel        | Nile Ritz-Carlton  | 2025-04-20  | 2250.00 | confirmed
+ Layla Mahmoud | Hotel        | Le Meurice         | 2025-06-10  | 4000.00 | confirmed
+ Layla Mahmoud | Flight       | Dubai -> Paris     | 2025-06-10  |  380.00 | confirmed
+ Nour Ibrahim  | Hotel        | Nile Ritz-Carlton  | 2025-02-14  |  800.00 | confirmed
+ Nour Ibrahim  | Hotel        | Le Meurice         | 2025-05-01  | 2000.00 | confirmed
+ Nour Ibrahim  | Flight       | Cairo -> Dubai     | 2025-06-01  |  250.00 | confirmed
+ Nour Ibrahim  | Flight       | Dubai -> Cairo     | 2025-07-01  |  260.00 | cancelled
+ Omar Khalil   | Hotel        | Nile Ritz-Carlton  | 2025-01-10  |  480.00 | confirmed
+ Omar Khalil   | Hotel        | Burj Al Arab       | 2025-02-01  | 2000.00 | confirmed
+ Omar Khalil   | Flight       | Cairo -> Dubai     | 2025-06-01  |  250.00 | confirmed
+ Omar Khalil   | Flight       | Paris -> Cairo     | 2025-06-20  |  420.00 | confirmed
+ Youssef Ali   | Hotel        | Nile Ritz-Carlton  | 2025-03-05  |  360.00 | confirmed
+ Youssef Ali   | Hotel        | The Savoy          | 2025-04-01  | 1500.00 | confirmed
+ Youssef Ali   | Flight       | Cairo -> London    | 2025-06-05  |  450.00 | confirmed
+ Youssef Ali   | Flight       | Dubai -> Cairo     | 2025-07-01  |  260.00 | confirmed
+(22 rows)
+
