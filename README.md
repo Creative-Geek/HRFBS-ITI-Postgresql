@@ -1,6 +1,10 @@
 # Hotel Reservation & Flight Booking System (HRFBS)
 
+<p align="center">
+  <img src="logo.png" alt="Description" width="300">
+  <br>
 HRFBS is a relational data model and reporting project built in PostgreSQL.
+</p>
 
 ## Scope
 
