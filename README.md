@@ -12,7 +12,7 @@ HRFBS models an end-to-end travel workflow across hotels and flights:
 - Booking lifecycle (pending, confirmed, cancelled)
 - Payments and reviews across both booking domains
 
-# Entity Relationship Diagram
+## Entity Relationship Diagram
 
 ```mermaid
 erDiagram
