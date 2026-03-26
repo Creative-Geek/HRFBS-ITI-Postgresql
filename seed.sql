@@ -11,7 +11,8 @@ INSERT INTO users (name, email, phone, password_hash, role) VALUES
 ('Youssef Ali',   'youssef.ali@email.com',   '01187654321', 'hashed_pw_5', 'customer'),
 ('Layla Mahmoud', 'layla.mahmoud@email.com', '01276543210', 'hashed_pw_6', 'customer'),
 ('Karim Farouk',  'karim.farouk@email.com',  '01365432109', 'hashed_pw_7', 'customer'),
-('Dina Samir',    'dina.samir@email.com',    '01454321098', 'hashed_pw_8', 'customer');
+('Dina Samir',    'dina.samir@email.com',    '01454321098', 'hashed_pw_8', 'customer'),
+('Tarek Nasser',  'tarek.nasser@email.com',  '01512345678', 'hashed_pw_9', 'customer');  -- flight only, no hotel booking (used to test query 8)
 
 
 -- 5 hotels across 5 cities
@@ -127,7 +128,8 @@ INSERT INTO flight_bookings (user_id, flight_id, seat_id, status) VALUES
 (3, 5, 33, 'confirmed'),  -- fb7:  Omar,    Paris->Cairo,     seat 1A
 (4, 6, 41, 'cancelled'),  -- fb8:  Nour,    Dubai->Cairo,     seat 1A — cancelled, frees the seat
 (5, 6, 41, 'confirmed'),  -- fb9:  Youssef, Dubai->Cairo,     seat 1A — same seat, now rebooked
-(7, 8, 57, 'pending');    -- fb10: Karim,   New York->London, seat 1A
+(7, 8, 57, 'pending'),    -- fb10: Karim,   New York->London, seat 1A
+(9, 7, 49, 'confirmed');  -- fb11: Tarek,   London->Cairo,    seat 1A — flight only, no hotel booking
 
 
 -- payments for all non-cancelled bookings
@@ -154,7 +156,8 @@ INSERT INTO payments (hotel_booking_id, flight_booking_id, amount, method, payme
 (NULL, 6,  550.00,  'credit_card', '2025-06-14'),  -- fb6
 (NULL, 7,  420.00,  'cash',        '2025-06-19'),  -- fb7
 (NULL, 9,  260.00,  'online',      '2025-06-30'),  -- fb9 (skipping fb8, it was cancelled)
-(NULL, 10, 520.00,  'credit_card', '2025-07-09');  -- fb10
+(NULL, 10, 520.00,  'credit_card', '2025-07-09'),  -- fb10
+(NULL, 12, 440.00,  'online',      '2025-07-04');  -- fb11 (Tarek)
 
 
 -- 10 reviews: 8 hotel reviews, 2 airline reviews

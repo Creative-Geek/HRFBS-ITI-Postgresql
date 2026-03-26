@@ -1,0 +1,161 @@
+{% extends "base.html" %} {% block title %}HRFBS — Hotels & Flights{% endblock
+%} {% block content %}
+
+<div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-3">
+        Find your next stay or flight
+    </h1>
+    <p class="text-gray-400">
+        Search available rooms and flights, book instantly.
+    </p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- hotel search -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <h2
+            class="flex items-center gap-2 text-lg font-semibold text-blue-600 mb-5"
+        >
+            <i data-lucide="building-2" class="w-5 h-5"></i>
+            Hotels
+        </h2>
+        <form action="/search/hotels" method="get" class="flex flex-col gap-4">
+            <div>
+                <label class="block text-sm text-gray-500 mb-1"
+                    >Destination</label
+                >
+                <div class="relative">
+                    <i
+                        data-lucide="map-pin"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                    ></i>
+                    <select
+                        name="location"
+                        required
+                        class="w-full border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-gray-800 bg-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 appearance-none"
+                    >
+                        <option value="" disabled selected>
+                            Select a city...
+                        </option>
+                        {% for loc in locations %}
+                        <option value="{{ loc }}">{{ loc }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1"
+                        >Check-in</label
+                    >
+                    <div class="relative">
+                        <i
+                            data-lucide="calendar"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+                        ></i>
+                        <input
+                            name="check_in"
+                            type="date"
+                            required
+                            class="w-full border border-gray-200 rounded-lg pl-9 pr-3 py-2 text-gray-800 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                        />
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-500 mb-1"
+                        >Check-out</label
+                    >
+                    <div class="relative">
+                        <i
+                            data-lucide="calendar"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+                        ></i>
+                        <input
+                            name="check_out"
+                            type="date"
+                            required
+                            class="w-full border border-gray-200 rounded-lg pl-9 pr-3 py-2 text-gray-800 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <button
+                type="submit"
+                class="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition"
+            >
+                <i data-lucide="search" class="w-4 h-4"></i>
+                Search Rooms
+            </button>
+        </form>
+    </div>
+
+    <!-- flight search -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <h2
+            class="flex items-center gap-2 text-lg font-semibold text-blue-600 mb-5"
+        >
+            <i data-lucide="plane" class="w-5 h-5"></i>
+            Flights
+        </h2>
+        <form action="/search/flights" method="get" class="flex flex-col gap-4">
+            <div>
+                <label class="block text-sm text-gray-500 mb-1">From</label>
+                <div class="relative">
+                    <i
+                        data-lucide="map-pin"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                    ></i>
+                    <select
+                        name="departure"
+                        required
+                        class="w-full border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-gray-800 bg-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 appearance-none"
+                    >
+                        <option value="" disabled selected>
+                            Select departure city...
+                        </option>
+                        {% for city in departures %}
+                        <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-500 mb-1">To</label>
+                <div class="relative">
+                    <i
+                        data-lucide="map-pin"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                    ></i>
+                    <select
+                        name="arrival"
+                        required
+                        class="w-full border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-gray-800 bg-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 appearance-none"
+                    >
+                        <option value="" disabled selected>
+                            Select arrival city...
+                        </option>
+                        {% for city in arrivals %}
+                        <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <!-- spacer to align button with hotel form -->
+            <div class="hidden md:block h-[42px]"></div>
+
+            <button
+                type="submit"
+                class="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2.5 rounded-lg transition"
+            >
+                <i data-lucide="search" class="w-4 h-4"></i>
+                Search Flights
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

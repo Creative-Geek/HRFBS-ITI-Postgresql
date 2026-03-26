@@ -253,6 +253,8 @@ ORDER BY payment_date;
 
 -- 12. every booking a customer ever made, hotel or flight, in one list
 -- useful for customer support or account statements
+-- flight amount uses COALESCE(payment, flight.price) — no total_cost on flight_bookings
+-- payments store the actual charged amount, so that's preferred when it exists
 
 SELECT
     u.name                                       AS customer,
@@ -273,11 +275,12 @@ SELECT
     'Flight'                                     AS booking_type,
     f.departure_city || ' -> ' || f.arrival_city AS destination,
     f.departure_time::date::text                 AS travel_date,
-    f.price                                      AS amount,
+    COALESCE(p.amount, f.price)                  AS amount,
     fb.status
 FROM users u
-JOIN flight_bookings fb ON u.user_id    = fb.user_id
-JOIN flights f          ON fb.flight_id = f.flight_id
+JOIN flight_bookings fb  ON u.user_id           = fb.user_id
+JOIN flights f           ON fb.flight_id        = f.flight_id
+LEFT JOIN payments p     ON p.flight_booking_id = fb.booking_id
 
 ORDER BY customer, travel_date;
 
