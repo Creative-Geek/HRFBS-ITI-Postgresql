@@ -286,3 +286,19 @@ ORDER BY customer, travel_date;
 
 -- returns everything per customer in chronological order
 -- admins won't appear since they have no bookings
+
+
+-- 13. What is the revenue running total for each hotel, month by month?
+
+SELECT
+    h.name AS hotel,
+    TO_CHAR(p.payment_date, 'YYYY-MM') AS month,
+    SUM(p.amount) AS monthly_revenue,
+    SUM(SUM(p.amount)) OVER (PARTITION BY h.hotel_id ORDER BY TO_CHAR(p.payment_date, 'YYYY-MM')) AS running_total
+FROM hotels h
+JOIN rooms r ON h.hotel_id = r.hotel_id
+JOIN hotel_bookings hb ON r.room_id = hb.room_id
+JOIN payments p ON p.hotel_booking_id = hb.booking_id
+WHERE hb.status != 'cancelled'
+GROUP BY h.hotel_id, h.name, TO_CHAR(p.payment_date, 'YYYY-MM')
+ORDER BY h.name, month;
